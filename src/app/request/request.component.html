@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div class="container container-height">
+  <div class="home-title-style">Your Request</div>
+  <div class="row">
+    <div class="col-sm-3 col-md-3 col-xs-6 row-padding" *ngFor="let lst of serviceType">
+      <div class="card card-size">
+        <div class="card-body card-body-style">
+          <div class="card-txt-style font-style">{{lst}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

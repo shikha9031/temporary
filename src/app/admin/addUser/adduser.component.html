@@ -1,0 +1,16 @@
+<div class="container panel-width-change">
+    <h2>Carousel Image</h2>
+    <div class="panel panel-info">
+      <div class="panel-heading">Upload Image</div>
+      <div class="panel-body">
+          <div class="row">
+          <div class="form-group col-sm-8" ><input type="file" class="form-control" (change)="uploadImage($event)"></div>
+          </div>
+                <div class="row">
+                     <div class="button-position"> 
+                        <button class="btn btn-primary"  (click)="uploadSelectedFile()">Click</button>
+                     </div>
+                </div>
+        </div>
+    </div>
+  </div>
