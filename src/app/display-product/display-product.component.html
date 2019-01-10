@@ -1,0 +1,63 @@
+<div class="display-product-wrapper">
+  <app-header></app-header>
+  <div class="notification">
+    <div class="title">End OF Season Sale</div>
+    <div class="sell-desc">EXTRA 25% OFF SALE STYLES WITH CODE HOL25</div>
+    <div class="sale-type">
+      <span>Sale for MEN</span>
+      <span>Sale for WOMEN</span>
+      <span>Sale for KID</span>
+    </div>
+  </div>
+  <div class="product-list">
+    <div class="left-div">
+      <div class="filter">Filter</div>
+      <div class="selection-list-container" *ngFor="let list of filterArray">
+        <ul>
+          <span>{{list.title}}</span>
+            <span class="down-arrow" *ngIf="!list.showList" (click)="toggleFun(list)">
+               <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </span>
+            <span class="down-arrow" *ngIf="list.showList" (click)="toggleFun(list)">
+              <i class="fa fa-angle-up" aria-hidden="true"></i>
+           </span>
+          <ng-container *ngIf="list.showList">
+            <li *ngFor="let obj of list.content; let i=index">
+                <span *ngIf="list.type=='price' && i<(list.content.length-1)">
+                    <div class="container">
+                    <input type="radio">&nbsp; &#8377;{{list.content[i]}}-&#8377;{{list.content[i+1]}}
+                    </div>
+                </span>
+                <span *ngIf="list.type=='customerRatings'">
+                  <div class="container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    &nbsp;{{obj}}&nbsp;<span class="fa fa-star"></span>&nbsp; & Above
+                  </div>
+                </span>
+                <span *ngIf="list.type=='color'">
+                  <div  class="container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    &nbsp;<i class="fa fa-circle" aria-hidden="true" [ngStyle]="{'color': obj}"></i>&nbsp;{{obj}}
+                  </div>
+                </span>
+                <span *ngIf="!(list.type=='price' || list.type=='customerRatings'|| list.type=='color')">
+                    <div  class="container">
+                      <input type="checkbox">
+                      <span class="checkmark"></span>&nbsp;{{obj}}
+                    </div>
+                </span>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+    <div class="right-div">
+      <div *ngFor="let list of collectionOfJeans; let i= index" class="show-collections">
+        <div><img src={{list.link}} height="345" width="345"></div>       
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

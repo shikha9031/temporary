@@ -18,7 +18,6 @@ images=[
 ]
 @HostListener("window:scroll", [])
 onWindowScroll() {
-   console.log(window.pageYOffset  +" window lenght");
    if(window.pageYOffset>925){
      $('.collections, .social-widget').css('display','none');
 

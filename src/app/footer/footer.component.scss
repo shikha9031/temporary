@@ -1,0 +1,32 @@
+@import "~assets/stylesheet/variables.scss";
+%ul-list-style {
+    list-style: none;
+    padding: 0px;
+  }
+.footer-container{
+    background-color: $primary-color;
+    // text-align: center;   
+    .footer-list-wrapper{
+      display: inline-block;  
+      margin: 10px 0 10px 275px; 
+   .footer-list{
+      display: inline-grid;
+      @extend %ul-list-style;
+      margin: 0;
+      margin-right: 90px;
+    }
+    .footer-list > :first-child{
+      font-weight: 600;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+    .footer-list > :not(:first-child){
+     font-size: 14px;
+    }
+  }
+  }
+  .copywright{
+    background-color:  rgb(45, 112, 165);
+    text-align: center;
+    padding: 10px;
+  }

@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RequestComponent } from './request/request.component';
 // import { AddUserComponent } from './adduser/adduser.component';
+import { DisplayProductComponent } from './display-product/display-product.component';
+
 
 const appRoutes: Routes = [
     
@@ -13,7 +15,7 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'home', component: HomeComponent },
     { path: 'requestPage', component: RequestComponent },
-  
+    { path: 'displayProduct', component: DisplayProductComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,97 @@
+.display-product-wrapper
+{
+    font-family: calibri;
+    width: 100%;  
+    .notification
+    {
+        z-index: 1;
+        text-align: center;
+        background-color: #c10912;
+        text-transform: uppercase;
+        padding: 15px 0;
+        margin-top: 83px;
+        color: white;
+        .title
+        {
+          font-weight: 600;
+          font-size: 18px;
+        }
+        .sell-desc 
+        {
+            font-size: 34px;
+            font-family: "Interstate-Bold";
+            color: white !important;
+            padding: 10px 0;
+        }
+        .sale-type
+        {
+          font-weight: 600;
+            span
+            {
+                padding-left: 20px;
+                cursor: pointer;
+                font-size: 18px;      
+                    &:hover
+                    {
+                        text-decoration: underline;
+                    }    
+            }
+        }
+    }
+    .product-list{
+        display:flex;
+        width:100%;
+        .left-div
+        {
+            width:30%;
+            box-shadow: 4px 3px 8px -1px #8C8C8C;
+            overflow-y: scroll;
+            height: 554px;
+            .selection-list-container{
+            ul{
+                list-style: none;
+                border-bottom: 1px solid #cacaca;
+                margin: 0;
+                position: relative;
+                padding: 15px;
+                .down-arrow{
+                    position: absolute;
+                    right: 18px;
+                    font-size: 25px;
+                    top: 0;
+                    cursor: pointer;
+                }
+                li{
+                    padding: 5px 0;
+                    .container{
+                        input{
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            } 
+        }
+        .selection-list-container:last-child{
+            ul{
+                border-bottom:none;
+            }
+        }
+            .filter{
+                font-size: 25px;
+                padding: 10px;
+                border-bottom: 1px solid #cacaca;
+
+            }         
+        }    
+        .right-div
+        {
+            width:70%;
+            height: 554px;
+            overflow-y: scroll;
+            .show-collections{
+                display: inline-block;
+            }
+        }
+    }
+}

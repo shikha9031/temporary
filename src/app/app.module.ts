@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { RequestComponent } from './request/request.component';
 
 import { OwlModule } from 'ngx-owl-carousel';
+import { DisplayProductComponent } from './display-product/display-product.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { OwlModule } from 'ngx-owl-carousel';
     FooterComponent,
     LoginComponent,
     RequestComponent,
+    DisplayProductComponent,
   ],
   imports: [
     BrowserModule,

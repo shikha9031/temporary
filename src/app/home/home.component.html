@@ -12,7 +12,7 @@
     <div class="container-width">
         <div class="collections">
             <ul class="list">
-                <li><span>MEN</span></li>
+                <li><span [routerLink]= "['/','displayProduct']">MEN</span></li>
                 <li><span>WOMEN</span></li>
                 <li><span>KIDS</span></li>
             </ul>
@@ -28,19 +28,19 @@
                     <a href="#" target="_blank">
                             <i class="fa fa-facebook"></i>
                             <p>Follow us On Facebook</p>                          
-                        </a>
+                    </a>
                     <a href="#" target="_blank">
                             <i class="fa fa-twitter"></i>
                             <p>Follow us On Twitter</p>
-                        </a>
+                    </a>
                     <a href="#" target="_blank">
                             <i class="fa fa-youtube-play"></i>
                             <p>Follow us On Youtube</p>
-                        </a>
+                    </a>
                     <a href="#" target="_blank">
                             <i class="fa fa-instagram"></i>
                             <p>Follow us On Instagram</p>
-                        </a>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -61,35 +61,5 @@
             </div>
         </div>
     </div>
-    <div class="footer-container">
-        <div class="footer-list-wrapper">
-            <ul class="footer-list">
-                <li>Company Name</li>
-                <li>Abcd</li>            
-            </ul>
-            <ul class="footer-list">
-                <li>Products</li>
-                <li>Men</li>   
-                <li>Women</li>            
-                <li>Kids</li>                        
-            </ul>
-            <ul class="footer-list">
-                <li>Useful Links</li>
-                <li>Home</li> 
-                <li>Products</li>
-                <li>Customer Service</li>  
-                <li>Our Story</li>
-            </ul>
-            <ul class="footer-list">
-                <li>Contacts</li>
-                <li>Shapoorji Pallonji, Shukhobristi</li> 
-                <li>abc@gmail.com</li> 
-                <li>+91 123456789</li> 
-                <li>+01 234567890</li>            
-            </ul>
-        </div>
-    </div>
-    <div class="copywright">
-       <span>&copy;</span> copywright Abcd
-    </div>
+    <app-footer></app-footer>
 </div>
