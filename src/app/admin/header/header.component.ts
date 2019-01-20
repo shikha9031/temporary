@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'header',
     templateUrl: './header.component.html',
-    // styleUrls: ['./admin.component.css']
+    styleUrls: ['./header.component.scss']
   })
   export class HeaderComponent {
     

@@ -1,0 +1,24 @@
+@import "~assets/stylesheet/variables.scss";
+.dashboard-header-container{
+    .header{
+        background-color:$primary-color;
+        position: relative;
+        font-family: calibri;
+        height: 63px;
+        .dashboard, .log-out{
+            position: absolute;
+            top: 40%;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+        }
+        .dashboard{
+            left: 120px;
+        }
+        .log-out{
+            right: 30px;
+        }
+    }
+}
+

@@ -13,36 +13,13 @@
                 <button class="search-button">Search</button>
             </div>
             <div class="menu-top-margin">
-                <div class="home"><span>Home</span></div>
+                <div class="home" [routerLink]= "['/','home']"><span>Home</span></div>
                 <div class="products">
                     <span>Products</span>
                     <div class="products-wrapper">
-                        <ul>
-                            <li>Men</li>
-                            <li>Jeans</li>
-                            <li>Tees</li>
-                            <li>Shirts</li>
-                            <li>Jackets</li>
-                            <li>Sweaters</li>
-                            <li>Sweatshirts</li>
-                        </ul>
-                        <ul>
-                            <li>Women</li>                                
-                            <li>Jeans</li>
-                            <li>Tees</li>
-                            <li>Shirts</li>
-                            <li>Jackets</li>
-                            <li>Sweaters</li>
-                            <li>Sweatshirts</li>
-                        </ul>
-                        <ul>
-                            <li>Kids</li>                                
-                            <li>Jeans</li>
-                            <li>Tees</li>
-                            <li>Shirts</li>
-                            <li>Jackets</li>
-                            <li>Sweaters</li>
-                            <li>Sweatshirts</li>
+                        <ul *ngFor="let list of productsArray; let i=index">
+                            <li>{{list.category}}</li>
+                            <li *ngFor="let obj of list.type">{{obj}}</li>
                         </ul>
                     </div>   
                 </div>

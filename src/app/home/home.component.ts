@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, Input,HostListener } from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import { ViewChild } from '@angular/core';
+import { ProductsService } from '../common/service/products.service'; 
 
 declare var $:any;
 @Component({
@@ -27,11 +28,9 @@ onWindowScroll() {
   }
 }
 
-  constructor() { }
-  
-  fun() {
-    this.owlElement.next([200])
-  }
+  constructor(private productsService:ProductsService) {
+   
+   }
 
   ngOnInit() {
     $(document).ready(function(){

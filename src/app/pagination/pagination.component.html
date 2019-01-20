@@ -1,0 +1,7 @@
+<div class="pagination-container">
+    <span class="pre" (click)="preNextpage('pre', pageArray, '')" [ngStyle]="{'color':pageArray[0] === 1 ? 'grey' : 'darkcyan' }">Previous</span>
+<ng-container *ngIf="pageArray.length>0">
+    <div *ngFor="let page of pageArray;let i=index" class="page" [ngClass]="{'clickPageNum': selectedPage == page}"(click)="preNextpage('', pageArray, page)">{{page}}</div>
+</ng-container>
+    <span class="next" (click)="preNextpage('next', pageArray, '')"  [ngStyle]="{'color':totalPages === pageArray[pageArray.length-1] ? 'grey' : 'darkcyan' }">Next</span>
+</div>

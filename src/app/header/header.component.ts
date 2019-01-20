@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductsService } from '../common/service/products.service'; 
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+ 
+/** products */
 
-  constructor(private _router:Router) { }
+productsArray:Array<any>;
+  constructor(private _router:Router, private productsService:ProductsService) { 
+    let promise= this.productsService.GetProductsList();
+      promise.subscribe(res=>{
+        this.productsArray=res;
+        //console.log(res);
+    })
+  }
 
   ngOnInit() {
   }

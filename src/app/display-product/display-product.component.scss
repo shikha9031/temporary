@@ -43,7 +43,7 @@
         width:100%;
         .left-div
         {
-            width:30%;
+            width:25%;
             box-shadow: 4px 3px 8px -1px #8C8C8C;
             overflow-y: scroll;
             height: 554px;
@@ -54,6 +54,11 @@
                 margin: 0;
                 position: relative;
                 padding: 15px;
+               .filter-title{
+                    text-transform: uppercase;
+                    color: #c10912;
+                    font-weight: 600;
+                }
                 .down-arrow{
                     position: absolute;
                     right: 18px;
@@ -64,9 +69,101 @@
                 li{
                     padding: 5px 0;
                     .container{
-                        input{
-                            width: 20px;
-                            height: 20px;
+                        position: relative;
+                        .styled-checkbox {
+                           // position: absolute; // take it out of document flow
+                            opacity: 0; // hide it
+                            position: absolute;
+                            & + label {
+                              cursor: pointer;
+                              padding: 0;
+                            }                        
+                            // Box.
+                            & + label:before {
+                              content: '';
+                              display: inline-block;
+                              vertical-align: text-top;
+                              width: 20px;
+                              height: 20px;
+                              background: #cecece;
+                            }
+                          
+                            // Box hover
+                            &:hover + label:before {
+                              background: #c10912;
+                            }
+                            
+                            // Box focus
+                            &:focus + label:before {
+                              box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+                            }
+                          
+                            // Box checked
+                            &:checked + label:before {
+                              background: #c10912;
+                            }
+                             // Checkmark. Could be replaced with an image
+                            &:checked + label:after {
+                                content: '';
+                                position: absolute;
+                                left: 5px;
+                                top: 9px;
+                                background: white;
+                                width: 2px;
+                                height: 2px;
+                                box-shadow: 
+                                2px 0 0 white,
+                                4px 0 0 white,
+                                4px -2px 0 white,
+                                4px -4px 0 white,
+                                4px -6px 0 white,
+                                4px -8px 0 white;
+                                transform: rotate(45deg);
+                            }
+                        }
+                        .styled-radio{
+                                 opacity: 0; // hide it
+                                 position: absolute;
+                                 & + label {
+                                   cursor: pointer;
+                                   padding: 0;
+                                 }                        
+                                 // Box.
+                                 & + label:before {
+                                   content: '';
+                                   display: inline-block;
+                                   vertical-align: text-top;
+                                   width: 20px;
+                                   height: 20px;
+                                   border-radius: 50%;
+                                   background: #cecece;
+                                 }
+                               
+                                 // Box hover
+                                 &:hover + label:before {
+                                   background: #c10912;
+                                 }
+                                 
+                                 // Box focus
+                                 &:focus + label:before {
+                                   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+                                 }
+                               
+                                 // Box checked
+                                 &:checked + label:before {
+                                   background: #c10912;
+                                 }
+                                  // Checkmark. Could be replaced with an image
+                                 &:checked + label:after {
+                                     content: '';
+                                     position: absolute;
+                                     left: 5px;
+                                     top: 5px;
+                                     background: white;
+                                     width: 10px;
+                                     height: 10px;
+                                     border-radius: 50%;
+                                 }                          
                         }
                     }
                 }
@@ -78,20 +175,113 @@
             }
         }
             .filter{
+                position: relative;
                 font-size: 25px;
                 padding: 10px;
                 border-bottom: 1px solid #cacaca;
-
+                .filter-text{
+                    text-transform: uppercase;
+                    font-weight: 600;
+                }
+                .apply{
+                    position: absolute;
+                    right: 90px;
+                }
+                .clear-all{
+                    position: absolute;
+                    right: 13px;
+                }
+                .apply, .clear-all {
+                    button{
+                        background-color: #2d70a5;
+                        color: white;
+                        border: none;
+                        padding: 5px 10px;
+                    }
+                }
             }         
         }    
         .right-div
         {
-            width:70%;
-            height: 554px;
-            overflow-y: scroll;
+            width:75%;
+            .right-div-header{
+                width: 95%;
+                position: relative;
+                margin: 0 auto;
+                padding: 15px 0;
+                .items-count{
+                    position: absolute;
+                    left: 0;
+                    font-weight: 600;
+                    font-size: 21px;
+                    bottom: 1px;
+                }
+                .sort{
+                    position: absolute;
+                    right: 0;
+                    bottom: 1px;
+                    top: 10px;
+                    .select-box{
+                        padding: 10px;
+                        list-style: none;
+                        background-color: white;
+                        -moz-box-shadow: 0 0 5px #888;
+                        -webkit-box-shadow: 0 0 5px#888;
+                        box-shadow: 0 0 5px #888;
+                        margin: 0;
+                        .items{
+                            padding: 5px;
+                            cursor: pointer;
+                        }
+                    }
+                    .sort-by{
+                        border: 1px solid black;
+                        padding: 5px;
+                        position: relative;
+                        width: 150px;
+                        .arrow{
+                            position: absolute;
+                            right: 10px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
             .show-collections{
                 display: inline-block;
+                .container{
+                    margin: 10px;
+                    background-color: black;
+                    color: white;
+                    .image{
+                        height:345px;
+                        width:300px;
+                    }
+                    .buy-now{
+                        margin: 0 auto;
+                        width: 50%;
+                        .brand{
+                            color: #9a9494;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                        }
+                        .price-container{
+                            .price{
+                                font-weight: 600;
+                            }
+                            .original-price{
+                                color: #b3afaf;
+                                text-decoration: line-through;
+                            }
+                            .offer{
+                                color: green;
+                            }
+                        }
+                    }
+                }
+              
             }
+          
         }
     }
 }

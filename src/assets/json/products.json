@@ -1,0 +1,16 @@
+{
+   "products": [
+        {
+            "category":"Men",
+            "type":[ "JEANS","TEES","SHIRTS","JACKETS","SWEATERS","SWEATSHIRTS"]
+        },
+        {
+            "category":"Women",
+            "type":[ "JEANS","TEES","SHIRTS","JACKETS","SWEATERS","SWEATSHIRTS"]
+        },
+        {
+            "category":"Kids",
+            "type":[ "JEANS","TEES","SHIRTS","JACKETS","SWEATERS","SWEATSHIRTS"]
+        }
+    ]
+}

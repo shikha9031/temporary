@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { LoginClass } from '../../common/module/login.interface';
  
  @Injectable()
- export class addUserService {
+ export class ProductService {
 
      private serviceUrl:any;
      constructor(private httpService:HttpService, private _http:Http){

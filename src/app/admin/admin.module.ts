@@ -5,9 +5,9 @@ import { HttpModule } from '@angular/http';
 import { Http, Headers } from '@angular/http';
 
 import { HttpService } from '../common/service/http.service';
-import { addUserService } from './addUser/adduser.service'
+import { ProductService } from './products/product.service'
 
-import { AddUserComponent } from './addUser/adduser.component';
+import { productComponent } from './products/product.component';
 import { AdminComponent } from './admin.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './nav-bar/nav-bar.component';
@@ -17,7 +17,7 @@ import { AdminRoute } from './admin.route';
 
 @NgModule({
   declarations: [
-    AddUserComponent,
+    productComponent,
     AdminComponent,
     HeaderComponent,
     NavbarComponent
@@ -29,7 +29,7 @@ import { AdminRoute } from './admin.route';
     AdminRoute,
     // HttpClientModule 
   ],
-  providers: [HttpService, addUserService],
+  providers: [HttpService, ProductService],
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }
