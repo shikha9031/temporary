@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { LoginClass } from '../../common/module/login.interface';
-import { ProductService } from './product.service'
+import { Component, OnInit } from '@angular/core';
+import { Products } from '../../common/model/product.interface';
+import { ProductService } from './product.service';
 import { ProductsService } from '../../common/service/products.service'; 
 
 @Component({
@@ -8,73 +8,69 @@ import { ProductsService } from '../../common/service/products.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class productComponent {
+export class productComponent implements OnInit{
   
-  loginClassObject=new LoginClass();
-  email:string='';
-  password:string='';
-  selectedFile: File;
-  productsArray:Array<any>;
-  ItemObj={'category':'','item':''};
+  // selectedFile: File;
+  productsArray:Products[];
+  product = new Products();
   selectItem=['Men','Women','Kids'];
-  index1:any;
-  index2:any;
+  item:any;
+  showForm:boolean=true;
 
+  ngOnInit(){
+   
+  }
 constructor( private appServiceObject:ProductService,private productsService:ProductsService )
 {
+/** fetch data */
+
   let promise= this.productsService.GetProductsList();
-  promise.subscribe(res=>{
-    this.productsArray=res;
-    //console.log(res);
+    promise.snapshotChanges().subscribe(items=>{
+        this.productsArray=[];
+        items.forEach((element, index)=>{          
+           var eachItem = element.payload.toJSON();
+           eachItem["$key"]=element.key;
+           if(eachItem["type"])
+           eachItem["type"] = Object.keys(eachItem["type"]).map(key => eachItem["type"][key]);
+           this.productsArray.push(eachItem as Products);
+        })
+        console.log("Get Element",this.productsArray);
     })
   }
-   login(){
-       if(this.email=='' || this.password=='')
-        {
-          alert("please fill both");
-        }
-        else
-          {
-            let res;
-            res=this.appServiceObject.submitApp(this.email, this.password);
-            res.then(data=>{
-                console.log(data);
-            
-            });
-             
-          }
-   }
-   uploadImage(event){
-    //const file = event.target.files[0];
-    this.selectedFile=event.target.files[0];
-   // console.log(this.selectedFile);
-   }
-   uploadSelectedFile(){
-     const uploadData = new FormData();
-    // uploadData.append(this.selectedFile);
-    let res= this.appServiceObject.submitImage(this.selectedFile);
-    // res.then(data=>{
-    //   console.log(data);
-    // }).catch(error=>{
-    //   console.log(error);
-    // });
-   }
-   updateBlock(index1, index2, update){
-     this.index1=index1;
-     this.index2=index2;
-     if(update=='Edit'){
-      this.ItemObj.category= this.productsArray[index1].category;
-      this.ItemObj.item=this.productsArray[index1].type[index2];
-     }
-     else if( update =='Delete') {
 
-     }
- 
-   }
-   submitUpdateForm(){
-    this.productsArray[this.index1].category=this.ItemObj.category;
-    this.productsArray[this.index1].type[this.index2]=  this.ItemObj.item;
-    let promise = this.productsService.submitUpdate(this.index1, this.index2, this.productsArray);
+  /** category section */
 
+   submitCategoryForm(){
+     if(this.product.$key==null){
+       this.productsService.InsertCategory(this.product);      
+     }
+     else{
+        this.productsService.updateProduct(this.product);
+     }
+   }
+   updateCategory(param){
+      this.product = Object.assign({}, param);
+      console.log(this.product);  
+   }
+   deleteCategory(param:any){
+     this.productsService.deleteCategory(param.$key);
+   }
+
+   /** items section */
+   submitItemForm(){
+      this.product.type.push(this.item);
+      this.productsService.insertItem(this.product);
+      this.resetItems();
+   }
+   selectKey(param){
+     this.product.$key=param.$key;
+     if(param.type)
+     this.product.type=param.type;
+     else
+      this.product.type=[];
+   }
+   resetItems(){
+    this.product= Object.assign({});
+    this.item='';
    }
 }

@@ -1,15 +1,19 @@
 <div class="product-form-wrapper">
-  <div class="header"><span>Products</span></div>
-  <form class="form-horizontal" #f="ngForm" (ngSubmit)="submitUpdateForm()">
+  <div class="header">
+    <span (click)="showForm=false">Add Items</span>
+    <span (click)="showForm=true">Add Category</span>
+  </div>
+  <form class="form-horizontal" #f="ngForm" (ngSubmit)="submitItemForm()" *ngIf="!showForm">
+      <input type="hidden" class="" id="$key" autocomplete="off"  name="$key" [(ngModel)]="product.$key">            
     <div class="products">
        <div class="praduct-label"><label class="control-label" for="category">Category:</label></div>
-        <select name="productList" [(ngModel)]="ItemObj.category" required>
-          <option *ngFor="let list of productsArray; let i=index"  [value]="list.category">{{list.category}}</option>
+        <select name="productList" [(ngModel)]="product.name" (change)="selectKey(productsArray[$event.target.selectedIndex])"  required>
+          <option *ngFor="let list of productsArray; let i=index"  [value]="list.name">{{list.name}}</option>
         </select>
     </div>
     <div class="products">
         <div class="praduct-label"><label class="control-label" for="item">Item:</label></div>    
-        <input type="text" class="" id="item" placeholder="Enter item" name="item" [(ngModel)]="ItemObj.item" required>
+        <input type="text" class="" id="item" placeholder="Enter item" name="item" autocomplete="off" [(ngModel)]="item" required>
     </div>
     <div class="">        
       <div class="button">
@@ -17,16 +21,31 @@
       </div>
     </div>
   </form>
+  <form class="form-horizontal" #f1="ngForm" (ngSubmit)="submitCategoryForm()" *ngIf="showForm">
+      <input type="hidden" class="" id="$key" autocomplete="off"  name="$key" [(ngModel)]="product.$key">      
+      <div class="products">
+          <div class="praduct-label"><label class="control-label" for="category">Category:</label></div>    
+          <input type="text" class="" id="category" autocomplete="off" placeholder="Enter category" name="category" [(ngModel)]="product.name" required>
+      </div>
+      <div class="">        
+        <div class="button">
+          <button type="submit" class="btn btn-default" [disabled]="f1.invalid">Submit</button>
+        </div>
+      </div>
+  </form>
 </div>
 <!-- Product table wrapper -->
  <div class="product-content-wrapper">
     <div class="header"><span>Items</span></div>
     <div class="product-list">
       <ul *ngFor="let list of productsArray; let i=index" class="items-container">
-        <li>{{list.category}}</li>
+        <li>{{list.name}}
+            <button (click)="updateCategory(list)" *ngIf="showForm">Edit</button>
+            <button (click)="deleteCategory(list)" *ngIf="showForm">Delete</button>
+        </li>
         <li *ngFor="let obj of list.type; let j=index"><span class="item">{{obj}}</span>
-          <button (click)="updateBlock(i, j, 'Edit')">Edit</button>
-          <button (click)="updateBlock(i, j,'Delete')">Delete</button>
+          <button (click)="updateBlock('Edit')" *ngIf="!showForm">Edit</button>
+          <button (click)="updateBlock('Delete')" *ngIf="!showForm">Delete</button>
         </li>
     </ul>
     </div>

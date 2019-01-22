@@ -18,7 +18,7 @@
                     <span>Products</span>
                     <div class="products-wrapper">
                         <ul *ngFor="let list of productsArray; let i=index">
-                            <li>{{list.category}}</li>
+                            <li>{{list.name}}</li>
                             <li *ngFor="let obj of list.type">{{obj}}</li>
                         </ul>
                     </div>   

@@ -2,7 +2,7 @@ import { HttpService } from '../../common/service/http.service';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Injectable } from '@angular/core';  
 import { Observable } from 'rxjs/Observable';
-import { LoginClass } from '../../common/module/login.interface';
+import { Products } from '../../common/model/product.interface';
  
  @Injectable()
  export class ProductService {
