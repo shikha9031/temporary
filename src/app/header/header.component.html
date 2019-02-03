@@ -1,16 +1,13 @@
 <div class="header-container">
         <div class="menu">
+          <div class="back" [routerLink]= "['/','home']">Back</div>                
           <div class="menu-content track-order">Track Order</div>
           <div class="menu-content location">Location</div>
           <div class="menu-content login">Login</div>          
         </div>
-        <div class="sub-menu" id="myHeader">
-            <div class="logo menu-content">
-              <img src="./assets/images/dummy-icon.jpg" height= "63px" width= "90px">
-            </div>
-            <div class="menu-content search-input">
-                <input type="text" placeholder="search..." class="search-text">
-                <button class="search-button">Search</button>
+        <div class="sub-menu mob-view-header" id="myHeader">
+            <div class="logo menu-content ">
+              <img src="./assets/images/logo1.jpeg" height= "85px" width= "160px">
             </div>
             <div class="menu-top-margin">
                 <div class="home" [routerLink]= "['/','home']"><span>Home</span></div>
@@ -34,11 +31,21 @@
                         </div>
                     </div>
                 </div>  
-                <div class="cart">
-                    <img src="./assets/images/cart.png" height= "30px" width= "30px">                    
-                    <span>0</span>
-                </div>
-            </div>   
+            </div> 
+            <div class="mob-menu">
+                <div class="mob-view-content-wrapper" id="itemsWrapper">
+                        <div class="items">Home</div>
+                        <div class="items">Products</div>
+                        <div class="items">Customer Service</div> 
+                        <div class="items">Our Story</div>                         
+                </div>              
+            <div (click)="showMenu()" class="burgur-menu-container" id="burgurMenu">
+                    <div class="burgur-menu bar1"></div>
+                    <div class="burgur-menu bar2"></div>
+                    <div class="burgur-menu bar3"></div> 
+            </div>  
+            </div>
+           
         </div>
 </div> 
    

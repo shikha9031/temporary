@@ -10,18 +10,18 @@
         </div>
     </div>
     <div class="container-width">
-        <div class="collections">
+        <!-- <div class="collections">
             <ul class="list">
                 <li  [routerLink]= "['/','displayProduct']"><span>MEN</span></li>
                 <li  [routerLink]= "['/','displayProduct']"><span>WOMEN</span></li>
                 <li  [routerLink]= "['/','displayProduct']"><span>KIDS</span></li>
             </ul>
-        </div>
-        <div class="owl-carousel owl-theme carousel-img-container">
+        </div> -->
+        <owl-carousel [options]="carouselOptions" [carouselClasses]="['owl-theme','row','sliding']" [items]="images"><!--class="owl-carousel owl-theme carousel-img-container"-->
             <div *ngFor="let obj of images" class="carousel-img">
-                <img [src]="obj.image" class="image">
+                <img [src]="obj.url" class="image" height="400px">
             </div>
-        </div>
+        </owl-carousel>
         <div class="social-widget">
             <ul class="list">
                 <li>
@@ -49,15 +49,16 @@
         <div class="gift-title">Give Gifts To Your Loving ones</div>
         <div class="jeans-gift-section-container">
             <div class="jeans-gift-section">
-                <img src="./assets/images/jeans1.jpg" height="455" width="300">
-                <button class="select">WOMEN</button></div>
-            <div class="jeans-gift-section">
-                <img src="./assets/images/kids-jeans.jpg" height="455" width="300">
-                <button class="select">KIDS</button>
+                <img src="./assets/images/jeans1.jpg" class="img-size">
+                <button class="select" [routerLink]= "['/','displayProduct']">WOMEN</button>
             </div>
             <div class="jeans-gift-section">
-                <img src="./assets/images/mens-jeans.png" height="455" width="300">
-                <button class="select">MEN</button>
+                <img src="./assets/images/kids-jeans.jpg" class="img-size">
+                <button class="select" [routerLink]= "['/','displayProduct']">KIDS</button>
+            </div>
+            <div class="jeans-gift-section">
+                <img src="./assets/images/men-jeans.jpg" class="img-size">
+                <button class="select"  [routerLink]= "['/','displayProduct']">MEN</button><!-- href="javascrip:void(0)"-->
             </div>
         </div>
     </div>

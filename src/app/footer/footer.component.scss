@@ -5,28 +5,51 @@
   }
 .footer-container{
     background-color: $primary-color;
-    // text-align: center;   
-    .footer-list-wrapper{
-      display: inline-block;  
-      margin: 10px 0 10px 275px; 
+    position: relative;
+    @media (max-width:425px){
+      width: 100%;
+    }
+    .footer-list-wrapper{ 
+      padding: 16px 30px;
+      @media (max-width:425px){
+        margin: 0 auto;
+       width: auto;
+       padding: 9px 0;
+       text-align: center;
+      }
    .footer-list{
+      color: $white-color;
       display: inline-grid;
       @extend %ul-list-style;
       margin: 0;
       margin-right: 90px;
+      @media (max-width:768px){
+        margin-right: 60px;
+      }
+      @media (max-width:425px){
+        margin-right: 0;
+        margin-top: 15px;
+        display: block;
+      }
     }
     .footer-list > :first-child{
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 3px;
+      color: #063c40;
       text-transform: uppercase;
     }
     .footer-list > :not(:first-child){
-     font-size: 14px;
+     font-size: 13px;
+     &:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
     }
   }
   }
   .copywright{
-    background-color:  rgb(45, 112, 165);
+    background-color:  #0a516d;
     text-align: center;
     padding: 10px;
+    color: $white-color;    
   }

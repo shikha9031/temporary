@@ -2,6 +2,9 @@ import { Component, OnInit, Inject, Input,HostListener } from '@angular/core';
 import {OwlCarousel} from 'ngx-owl-carousel';
 import { ViewChild } from '@angular/core';
 import { ProductsService } from '../common/service/products.service'; 
+import { UploadService } from '../common/service/upload.service';
+import { Upload } from '../common/model/upload';
+
 
 declare var $:any;
 @Component({
@@ -12,11 +15,10 @@ declare var $:any;
 export class HomeComponent implements OnInit {
   @ViewChild('owlElement') owlElement: OwlCarousel;
   
-images=[
-  {'image':'../../assets/images/jeans-sale.png'},
-  {'image':'../../assets/images/jeans-sale2.jpg'},
-  {'image':'../../assets/images/jeans-sale3.jpg'},  
-]
+images:Array<any>;
+carouselOptions={
+  items: 1, dots: true, navigation: false,responsiveClass:true, autoplay:true
+}
 @HostListener("window:scroll", [])
 onWindowScroll() {
    if(window.pageYOffset>925){
@@ -28,23 +30,20 @@ onWindowScroll() {
   }
 }
 
-  constructor(private productsService:ProductsService) {
-   
+  constructor(private uploadService:UploadService) {
    }
 
   ngOnInit() {
-    $(document).ready(function(){
-      $('.owl-carousel').owlCarousel(
-        {
-          items:1,
-          lazyLoad:true,
-          loop:true,
-          responsiveClass:true,
-          autoplay:true,
-          autoplayTimeout:3000,
-          autoplayHoverPause:true
-        }
-      );
-    });
+    let promise= this.uploadService.getFiles();
+    promise.subscribe(items=>{
+      this.images=[];
+      items.forEach((element, index)=>{          
+         var eachItem = element.payload.toJSON();
+         eachItem["$key"]=element.key;
+         this.images.push(eachItem as Upload);
+      })
+
+      console.log("Get Element", this.images);
+  })
   }
 }

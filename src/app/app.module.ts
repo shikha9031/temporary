@@ -4,19 +4,21 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Http, Headers } from '@angular/http';
-
-import { AdminModule } from './admin/admin.module';
 import { AppRoute } from './app.route';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
-import { OwlModule } from 'ngx-owl-carousel';
 //custom service
 import { HttpService } from './common/service/http.service';
 import { LoginService } from './login/login.service';
 import { ProductsService } from './common/service/products.service'; 
+
+// external modules
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { OwlModule } from 'ngx-owl-carousel';
+import { AdminModule } from './admin/admin.module';
 
 //custom component
 import { AppComponent } from './app.component';
@@ -28,6 +30,8 @@ import { RequestComponent } from './request/request.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { DisplayProductComponent } from './display-product/display-product.component';
 
+// custom directives
+import { DropZoneDirective } from './common/directive/drop-zone.directive';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,8 @@ import { DisplayProductComponent } from './display-product/display-product.compo
     LoginComponent,
     RequestComponent,
     DisplayProductComponent,
-    PaginationComponent
+    PaginationComponent,
+    DropZoneDirective
   ],
   imports: [
     BrowserModule,

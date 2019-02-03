@@ -1,0 +1,48 @@
+#progressbar {
+    background-color: black;
+    border-radius: 13px;
+    /* (height of inner div) / 2 + padding */
+    padding: 2px;
+    div{
+        background-color: #2196F3;
+        width: 0;
+        /* Adjust with JavaScript */
+        height: 20px;
+        border-radius: 10px;
+    }
+    div:-webkit-progress-value{
+        transition: width 0.1s ease;
+    }
+
+  }
+  .upload-image-form{
+      width:50%;
+      float: left;
+  }
+.successfull-submit-msg{
+    text-align: center;
+    background-color: lightblue;
+    font-weight: 500;
+}
+.uploaded-images{
+    .upload-img{
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        padding: 10px;
+        color: #f78c07;
+    }
+    .image{
+        display: inline-block;
+        margin-right: 55px;
+        .delete{
+            display: block;
+            margin: 0 auto;
+            border: none;
+            color: white;
+            background-color: orange;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    }
+}

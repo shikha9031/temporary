@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from '../common/service/products.service'; 
 import { Products } from '../common/model/product.interface';
+declare var $:any;
 
 @Component({
   selector: 'app-header',
@@ -12,11 +13,12 @@ export class HeaderComponent implements OnInit {
  
 /** products */
 products=['JEANS','TEES','SHIRTS','JACKETS','SWEATERS','SWEATSHIRTS'];
+showMenuFlag:boolean=false;
 
 productsArray:Array<any>;
   constructor(private _router:Router, private productsService:ProductsService) { 
     let promise= this.productsService.GetProductsList();
-    promise.snapshotChanges().subscribe(items=>{
+    promise.subscribe(items=>{
       this.productsArray=[];
       items.forEach((element, index)=>{          
          var eachItem = element.payload.toJSON();
@@ -47,5 +49,10 @@ productsArray:Array<any>;
   }
   logOut(){
     this._router.navigate(['./login']);
+  }
+  showMenu(){
+    document.getElementById('burgurMenu').classList.toggle("change");
+    document.getElementById("itemsWrapper").classList.toggle("displayBlock");
+   // $(".mob-view-content-wrapper").css({"display":"block"});
   }
 }

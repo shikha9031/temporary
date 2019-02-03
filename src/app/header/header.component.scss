@@ -12,12 +12,16 @@
   width: 100%;
   z-index: 99;
   top: 0;
-  overflow: hidden;
   .menu{
     position: relative;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #2b2726;
     color: white;
     height: 20px;
+    .back{
+      position: absolute;
+      left: 10px;
+      cursor: pointer;
+    }
     .menu-content{
       right: 0;
       position: absolute;
@@ -37,41 +41,29 @@
     background-color:$primary-color;
     position: relative;
     height: 63px;
+    @media (max-width:425px){
+      &.mob-view-header{
+        background-color: #0a516d!important;
+        width: 100%;
+        .logo{
+            img{
+              height: 62px !important;
+              width: 90px !important;
+            }
+        }
+       }
+    }
     .menu-content{
       position: absolute;
-      &.search-input{
-        left: 11%;
-        top: 26%;
-        .search-text{
-          padding: 0 20px 0;
-          width: 330px;
-          height: 30px;
-          border-radius: 25px;
-          border: none;
-        }
-        .search-text:focus {
-          outline-width: 0;
-      }
-      .search-button{
-        margin-left: -71px;
-        height: 30px;
-        border: none;
-        text-transform: uppercase;
-        border-top-right-radius: 25px;
-        border-bottom-right-radius: 25px;
-        cursor: pointer;
-        background-color: rgba(0,0,0,0.8);
-        color: white;
-      }
-      .search-button:focus {
-        outline-width: 0;
-    }
-      }
     }
     .menu-top-margin{
       position: absolute;
-      left: 41%;
+      // left: 41%;
+      right: 0;
       text-transform: uppercase;
+      @media (max-width:425px){
+        display: none;
+      }
       .home, .products,.customers, .our-story{
         padding: 22px;
         float: left;
@@ -80,10 +72,21 @@
           cursor: pointer;
         }
         .products-wrapper{
-          left: 639px;
+          // left: 639px;
+          // left: 47.4%;
+          right: 10%;
           @extend %div-animation;
         &:hover{
           display: block;          
+        }
+        @media (min-width:1440px){
+         right: 9.4%;
+        }
+        @media (max-width:1024px){//and min-width: 767px
+          right: 13.3%;
+        }
+        @media (max-width:768px) {
+          right: 17.6%;
         }
         }
         &:hover{
@@ -100,7 +103,7 @@
           display: block;
           border:1px solid #a9a3a3;
           ul{
-            display: inline-block;  
+            display: inline-grid;  
             list-style: none;
             padding: 0;       
             }
@@ -128,7 +131,7 @@
             border:1px solid #a9a3a3;
             padding: 10px;
             width: 400px;
-            right: -1px;
+            right: 0;
             .title{
               padding-bottom: 10px;
               font-weight: 600;
@@ -152,10 +155,68 @@
         }
       }
     }
+ .mob-menu{
+   display: none;
+  @media (max-width:425px) {
+    display: inline-block;
+    .burgur-menu-container{
+     position: absolute;
+     right: 20px;
+     top: 10px;
+     cursor: pointer;
+     .burgur-menu {
+       width: 35px;
+       height: 5px;
+       background-color: black;
+       margin: 6px 0;
+       &.bar1, &.bar2, &.bar3{
+        transition: 0.4s;
+       }
+     }
+     &.change{
+       .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+      }
+      
+       .bar2 {opacity: 0;}
+      
+      .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+      }
+     }
+    }
+         .mob-view-content-wrapper{
+          display: none; 
+          position: absolute;
+          color: white;
+          top: 62px;
+          background-color: black;
+          padding: 10px;
+          width: 100%;
+          overflow: hidden;
+         &.displayBlock{
+           display: block !important;
+           transition: 0.5s; 
+           -webkit-animation: heightanimate 0.5s;  /* Safari 4.0 - 8.0 */
+           -webkit-animation-fill-mode: alternate; /* Safari 4.0 - 8.0 */
+           animation: heightanimate 0.5s;
+           animation-fill-mode: alternate;          
+         }
+         }
+  }
+ }
    
   }
   .sticky {
-    background-color: rgb(45, 112, 165);
+    background-color: #0a516d;
+    .logo{
+        img{
+          height: 62px !important;
+          width: 90px !important;
+        }
+    }
   }
   
 }
@@ -174,5 +235,31 @@
   to {
     top: 83px;
     background-color: white;    
+  }
+}
+@-webkit-keyframes heightanimate {
+  from {height: 0;}
+  to {
+    height: 86px;
+  }
+}
+
+@keyframes heightanimate {
+  from {height: 0;}
+  to {
+    height: 86px;
+  }
+}
+@-webkit-keyframes heightanimate2 {
+  from {height: 86px;}
+  to {
+    height: 0;
+  }
+}
+
+@keyframes heightanimate2 {
+  from {height: 86px;}
+  to {
+    height: 0;
   }
 }

@@ -1,0 +1,52 @@
+<div class="product-form-wrapper">
+  <!-- header  -->
+  <div class="header">
+    <span (click)="showForm=true" [ngStyle]="{ 'background-color': showForm ? '#100202': ''}">Upload Single</span>
+    <!-- <span (click)="showForm=false" [ngStyle]="{ 'background-color': !showForm ? '#100202': ''}">Upload Multiple</span> -->
+  </div>
+  <!-- single image upload -->
+  <div class="successfull-submit-msg" *ngIf="successSubmit">
+    submitted successfully
+  </div>
+  <div id="progressbar">
+    <div [ngStyle]="{ 'width': currentUpload?.progress + '%'}"></div>
+  </div>
+  Progress : {{currentUpload?.progress}} % complete
+
+  <form class="form-horizontal" *ngIf="showForm">
+    <div class="upload-image-form">
+      <div class="products">
+        <div class="praduct-label"><label class="control-label" for="imageurl">Item:</label></div>
+        <input type="file" id="imageurl" placeholder="upload images" name="imageurl" (change)="detectChanges($event)">
+      </div>
+      <div class="button">
+        <button type="button" class="btn btn-default" (click)="uploadSingleImage()" [disabled]="!selectedfiles">Upload</button>
+        <button type="button" class="btn btn-default" (click)="submitImage(currentUpload)" [disabled]="currentUpload?.url==null">Submit</button>        
+      </div>
+    </div>
+    <div class="show-image">
+        <img [src]=currentUpload?.url *ngIf="currentUpload?.url" height="100px">        
+    </div>
+  </form>
+  <!-- multiple image upload -->
+  <form class="form-horizontal" (ngSubmit)="uploadMutipleImages()" *ngIf="!showForm">
+    <div class="products">
+      <div class="praduct-label"><label class="control-label" for="imageurl">Item:</label></div>
+      <input type="file" id="imageurl" placeholder="upload images" name="imageurl" (change)="detectChanges($event)">
+    </div>
+    <div class="">
+      <div class="button">
+        <button type="submit" class="btn btn-default" [disabled]="!selectedfiles">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="uploaded-images">
+ <div class="upload-img"> Uploaded images</div>
+  <div *ngFor="let list of uploadedFileArray" class="image">
+    <img [src]=list.url height="200px" width="300px">
+    <button class="delete" (click)="deleteImage(list)">Delete</button>
+  </div>
+</div>
+<app-modal [showModalFlag]="showFlag" (emitContent)="receiveContent($event)" *ngIf="showFlag"></app-modal>

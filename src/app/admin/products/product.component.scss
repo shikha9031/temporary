@@ -1,61 +1,4 @@
-.product-form-wrapper
-{
-    input.ng-invalid.ng-dirty{
-        border:1px solid red;
-      }
-    background-color: lightgray;
-    width: 65%;
-    height: 215px;
-    margin: 10px auto;
-    .header
-    {
-        // height: 50px;
-        padding: 10px;
-        background-color: grey;
-        position: relative;
-        span{
-            font-size: 15px;
-            color: white;
-            text-transform: uppercase;
-            background-color: #100202;
-            font-weight: 600;
-            display: inline-block;
-            padding: 5px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-    }
-    .form-horizontal
-    {
-        padding: 15px; 
-        .products
-        {
-            font-size: 20px;
-            margin-bottom: 10px;
-            .praduct-label{
-                float: left;
-                width: 14%;
-            }
-            input
-            {
-                width: 70%;
-                padding: 10px;
-            }
-            select{
-                width: 74%;
-                padding: 10px;
-            }
-        }
-        .button{
-            text-align: center;
-            button{
-                padding: 10px;
-            }
-        }
-    }
-     
-    
-}
+
 .product-content-wrapper{
     // margin: 0;
     // width: 100%;
@@ -88,7 +31,8 @@
             list-style: none;
             width: 28.3%;
             background-color: #8fb2bc;
-            display: inline-block;
+            // display: inline-block;
+            display: inline-grid;
            li{
             &:first-child{
                 font-weight: 600;
