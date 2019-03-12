@@ -1,8 +1,8 @@
 <div class="header-container">
         <div class="menu">
-          <div class="back" [routerLink]= "['/','home']">Back</div>                
-          <div class="menu-content track-order">Track Order</div>
-          <div class="menu-content location">Location</div>
+          <!-- <div class="back" [routerLink]= "['/','home']">Back</div>                 -->
+          <!-- <div class="menu-content track-order">Track Order</div> -->
+          <!-- <div class="menu-content location">Location</div> -->
           <div class="menu-content login">Login</div>          
         </div>
         <div class="sub-menu mob-view-header" id="myHeader">
@@ -20,8 +20,8 @@
                         </ul>
                     </div>   
                 </div>
-                <div class="customers">
-                    <span>Customer Service</span>
+                <div class="customers" [routerLink]= "['/','storeLocation']">
+                    <span>Store Locator</span>
                 </div> 
                 <div class="our-story">
                     <span>Our Story</span>
@@ -34,9 +34,9 @@
             </div> 
             <div class="mob-menu">
                 <div class="mob-view-content-wrapper" id="itemsWrapper">
-                        <div class="items">Home</div>
+                        <div class="items"  [routerLink]= "['/','home']">Home</div>
                         <div class="items">Products</div>
-                        <div class="items">Customer Service</div> 
+                        <div class="items" [routerLink]= "['/','storeLocation']">Store Locator</div> 
                         <div class="items">Our Story</div>                         
                 </div>              
             <div (click)="showMenu()" class="burgur-menu-container" id="burgurMenu">

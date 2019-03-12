@@ -27,10 +27,10 @@
            </span>
           <div [hidden]="!list.showList">
             <li *ngFor="let obj of list.content; let i=index">
-                <span *ngIf="list.type=='price' && i<(list.content.length-1)">
+                <span *ngIf="list.type=='price'"><!-- && i<(list.content.length-1)"-->
                     <div class="container">
                     <input type="radio" class="styled-radio" id="radio1" name="radio1">
-                    <label>&nbsp; &#8377;{{list.content[i]}}-&#8377;{{list.content[i+1]}}</label>
+                    <label>&nbsp;{{list.content[i]}}</label>
                     </div>
                 </span>
                 <span *ngIf="list.type=='customerRatings'">
@@ -70,7 +70,7 @@
       </div>
       <ng-container *ngIf="showArray.length>0">
       <div *ngFor="let list of showArray; let i= index" class="show-collections">
-        <div class="container">
+        <div class="container" (click)="chooseProductFunc(list)">
           <img src={{list.link}}  class="image">
           <div class="buy-now">
             <div class="brand">{{list.brand}}</div>

@@ -11,12 +11,12 @@ import { environment } from '../environments/environment';
 import { HttpService } from './common/service/http.service';
 import { LoginService } from './login/login.service';
 import { ProductsService } from './common/service/products.service'; 
+import { ItemsService } from './common/service/item.service';
 
 // external modules
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
 import { OwlModule } from 'ngx-owl-carousel';
 import { AdminModule } from './admin/admin.module';
 
@@ -32,6 +32,10 @@ import { DisplayProductComponent } from './display-product/display-product.compo
 
 // custom directives
 import { DropZoneDirective } from './common/directive/drop-zone.directive';
+import { StoreLocationComponent } from './store-location/store-location.component';
+import { AgmCoreModule } from '@agm/core';
+import { ShowOneProductComponent } from './show-one-product/show-one-product.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +47,9 @@ import { DropZoneDirective } from './common/directive/drop-zone.directive';
     RequestComponent,
     DisplayProductComponent,
     PaginationComponent,
-    DropZoneDirective
+    DropZoneDirective,
+    StoreLocationComponent,
+    ShowOneProductComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +60,12 @@ import { DropZoneDirective } from './common/directive/drop-zone.directive';
     OwlModule,
     AngularFireModule.initializeApp(environment.config),
     AngularFirestoreModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDXa1WQzToUcwh9NmK7X3DHxCUSZaHGwDY',
+      libraries: ['places']
+    })
   ],
-  providers: [HttpService, LoginService, ProductsService, AngularFireDatabase ],
+  providers: [HttpService, LoginService, ProductsService, AngularFireDatabase, ItemsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

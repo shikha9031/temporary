@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 declare var $:any;
+import { Items } from '../common/model/items.interface';
+import { ItemsService } from '../common/service/item.service';
+import { Router  } from '@angular/router';
+
+
 @Component({
   selector: 'app-display-product',
   templateUrl: './display-product.component.html',
@@ -15,7 +20,7 @@ export class DisplayProductComponent implements OnInit {
         {
         'title':'Price',
         'type':'price',
-        'content':['100','500','1000','5000','10000'],
+        'content':['100-500','500-1000','1000-5000','5000-10000'],
         'showList':true
       },
       {
@@ -53,126 +58,126 @@ export class DisplayProductComponent implements OnInit {
  * right section 
  * collection of items
  */
-  collectionOfJeans=
-  [
-    {
-      'link':'./assets/images/boys-jeans/boys-jeans1.jpg',
-      'filter':'male',
-      'brand':'Flying Machine',
-      'title':"Skinny Men blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    },
-    {
-      'link':'./assets/images/boys-jeans/boys-jeans2.jpg',
-      'filter':'male',
-      'brand':'Flying Machine',
-      'title':"Skinny Men blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    },
-    {
-      'link':'./assets/images/boys-jeans/boys-jeans3.jpg',
-      'filter':'male',
-      'brand':'Flying Machine',
-      'title':"Skinny Men blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    },
-    {
-      'link':'./assets/images/boys-jeans/boys-jeans4.jpg',
-      'filter':'male',
-      'brand':'Flying Machine',
-      'title':"Skinny Men blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    },
-    {
-      'link':'./assets/images/boys-jeans/boys-jeans5.jpg',
-      'filter':'male',
-      'brand':'Flying Machine',
-      'title':"Skinny Men blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    },
-    {
-      'link':'./assets/images/boys-jeans/boys-jeans6.jpg',
-      'filter':'male',
-      'brand':'Flying Machine',
-      'title':"Skinny Men blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    },
-    { 
-      'link':'./assets/images/boys-jeans/boys-jeans7.jpg',
-       'filter':'male',
-       'brand':'Flying Machine',
-       'title':"Skinny Men blue jeans",
-       'price':'899',
-       'originalPrice':'1200',
-       'offer':'30%'
-    },
-    {
-      'link':'./assets/images/ladies-jeans/Ladies-jeans1.jpg',
-      'filter':'female',
-      'brand':'Flying Machine',
-      'title':"Skinny Men blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    },
-    {
-      'link':'./assets/images/ladies-jeans/Ladies-jeans2.jpg',
-      'filter':'female',
-      'brand':'Flying Machine',
-      'title':"Skinny Women's blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    },
-    {
-      'link':'./assets/images/ladies-jeans/Ladies-jeans3.jpg',
-      'filter':'female',
-      'brand':'Flying Machine',
-      'title':"Skinny Women's blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    },
-    {
-      'link':'./assets/images/ladies-jeans/Ladies-jeans4.jpeg',
-      'filter':'female',
-      'brand':'Flying Machine',
-      'title':"Skinny Women's blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    },
-    {
-      'link':'./assets/images/ladies-jeans/Ladies-jeans5.jpg',
-      'filter':'female',
-      'brand':'Flying Machine',
-      'title':"Skinny Women's blue jeans",
-      'price':'899',
-      'originalPrice':'1200',
-      'offer':'30%'
-    } 
-  ];
+collectionOfJeans:Array<Items>;
+ 
   selectSortingType="Sort By";
   toggleBox:boolean=false;
   sortByArray=["Best Matches","Price Low to High","Price High to Low","Product Name A-Z","Product Name Z-A","Most Popular","Top Sellers"];
-  pagerObj:any={'pageArray':[1,2,3,4], 'totalPages':0 , 'itemsPerPage':6, 'productArray':this.collectionOfJeans};
+  pagerObj:any;
   showArray:Array<any>=[];
-  constructor() { }
-
-  ngOnInit()
-   { 
+  constructor(private _itemsService:ItemsService, private route:Router ) { 
+    this.collectionOfJeans=
+    [
+      {
+        'link':'./assets/images/boys-jeans/boys-jeans1.jpg',
+        'filter':'male',
+        'brand':'Flying Machine',
+        'title':"Skinny Men blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      },
+      {
+        'link':'./assets/images/boys-jeans/boys-jeans2.jpg',
+        'filter':'male',
+        'brand':'Flying Machine',
+        'title':"Skinny Men blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      },
+      {
+        'link':'./assets/images/boys-jeans/boys-jeans3.jpg',
+        'filter':'male',
+        'brand':'Flying Machine',
+        'title':"Skinny Men blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      },
+      {
+        'link':'./assets/images/boys-jeans/boys-jeans4.jpg',
+        'filter':'male',
+        'brand':'Flying Machine',
+        'title':"Skinny Men blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      },
+      {
+        'link':'./assets/images/boys-jeans/boys-jeans5.jpg',
+        'filter':'male',
+        'brand':'Flying Machine',
+        'title':"Skinny Men blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      },
+      {
+        'link':'./assets/images/boys-jeans/boys-jeans6.jpg',
+        'filter':'male',
+        'brand':'Flying Machine',
+        'title':"Skinny Men blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      },
+      { 
+        'link':'./assets/images/boys-jeans/boys-jeans7.jpg',
+         'filter':'male',
+         'brand':'Flying Machine',
+         'title':"Skinny Men blue jeans",
+         'price':'899',
+         'originalPrice':'1200',
+         'offer':'30%'
+      },
+      {
+        'link':'./assets/images/ladies-jeans/Ladies-jeans1.jpg',
+        'filter':'female',
+        'brand':'Flying Machine',
+        'title':"Skinny Men blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      },
+      {
+        'link':'./assets/images/ladies-jeans/Ladies-jeans2.jpg',
+        'filter':'female',
+        'brand':'Flying Machine',
+        'title':"Skinny Women's blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      },
+      {
+        'link':'./assets/images/ladies-jeans/Ladies-jeans3.jpg',
+        'filter':'female',
+        'brand':'Flying Machine',
+        'title':"Skinny Women's blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      },
+      {
+        'link':'./assets/images/ladies-jeans/Ladies-jeans4.jpeg',
+        'filter':'female',
+        'brand':'Flying Machine',
+        'title':"Skinny Women's blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      },
+      {
+        'link':'./assets/images/ladies-jeans/Ladies-jeans5.jpg',
+        'filter':'female',
+        'brand':'Flying Machine',
+        'title':"Skinny Women's blue jeans",
+        'price':'899',
+        'originalPrice':'1200',
+        'offer':'30%'
+      } 
+    ];
+    this.pagerObj={'pageArray':[1,2,3,4], 'totalPages':0 , 'itemsPerPage':6, 'productArray':this.collectionOfJeans};    
     this.pagerObj.totalPages= Math.ceil(this.collectionOfJeans.length/this.pagerObj.itemsPerPage);
     if(this.pagerObj.totalPages<=4)
       {
@@ -183,6 +188,9 @@ export class DisplayProductComponent implements OnInit {
           }
       }
   }
+
+  ngOnInit()
+   { }
   toggleFun(list){
     list.showList=!list.showList;
   }
@@ -198,5 +206,10 @@ export class DisplayProductComponent implements OnInit {
         this.showArray=event;
         console.log(this.showArray);
       }, 500) 
+  }
+  chooseProductFunc(list:Items){
+   // this._itemsService.setValue(list);
+   localStorage.setItem("Items",JSON.stringify(list));
+     this.route.navigate(['./showOneProduct'])
   }
 }

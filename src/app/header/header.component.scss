@@ -68,19 +68,15 @@
         padding: 22px;
         float: left;
         color: white;
-        span{
           cursor: pointer;
-        }
         .products-wrapper{
-          // left: 639px;
-          // left: 47.4%;
-          right: 10%;
+          right: 8.1%;
           @extend %div-animation;
         &:hover{
           display: block;          
         }
         @media (min-width:1440px){
-         right: 9.4%;
+          right: 7.6%;
         }
         @media (max-width:1024px){//and min-width: 767px
           right: 13.3%;

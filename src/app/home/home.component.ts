@@ -5,7 +5,6 @@ import { ProductsService } from '../common/service/products.service';
 import { UploadService } from '../common/service/upload.service';
 import { Upload } from '../common/model/upload';
 
-
 declare var $:any;
 @Component({
   selector: 'app-home',
@@ -29,10 +28,7 @@ onWindowScroll() {
     $('.collections, .social-widget').css('display','block');
   }
 }
-
-  constructor(private uploadService:UploadService) {
-   }
-
+  constructor(private uploadService:UploadService) {}
   ngOnInit() {
     let promise= this.uploadService.getFiles();
     promise.subscribe(items=>{

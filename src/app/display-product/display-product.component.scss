@@ -62,10 +62,16 @@
                 margin: 0;
                 position: relative;
                 padding: 15px;
+                @media (max-width:320px){
+                    padding: 10px 5px;
+                }
                .filter-title{
                     text-transform: uppercase;
                     color: #c10912;
                     font-weight: 600;
+                    @media (max-width:320px){
+                        font-size: 13px;
+                    }
                 }
                 .down-arrow{
                     position: absolute;
@@ -85,6 +91,9 @@
                             & + label {
                               cursor: pointer;
                               padding: 0;
+                              @media(max-width:425px){
+                                font-size: 12px;
+                              }
                             }                        
                             // Box.
                             & + label:before {
@@ -135,6 +144,9 @@
                                  & + label {
                                    cursor: pointer;
                                    padding: 0;
+                                   @media(max-width:425px){
+                                    font-size: 12px;
+                                  }
                                  }                        
                                  // Box.
                                  & + label:before {
@@ -236,12 +248,23 @@
                     font-weight: 600;
                     font-size: 21px;
                     bottom: 1px;
+                    @media (max-width:425px){
+                        top: 0;
+                    }
                 }
                 .sort{
                     position: absolute;
                     right: 0;
                     bottom: 1px;
                     top: 10px;
+                    @media (max-width:425px){
+                        position: relative;
+                        right: 0;
+                        bottom: 0;
+                        top: 0;
+                        margin: 15px 19px;
+                        display: block;
+                    }
                     .select-box{
                         padding: 10px;
                         list-style: none;
@@ -250,6 +273,11 @@
                         -webkit-box-shadow: 0 0 5px#888;
                         box-shadow: 0 0 5px #888;
                         margin: 0;
+                        @media (max-width:425px){
+                            position: absolute;
+                            padding: 0 16px;
+                        }
+                        
                         .items{
                             padding: 5px;
                             cursor: pointer;
@@ -271,9 +299,17 @@
             .show-collections{
                 display: inline-block;
                 .container{
+                    cursor: pointer;                    
                     margin: 10px;
-                    // background-color: black;
-                    // color: white;
+                    @media (max-width:425px){
+                        margin: 2px 5px;
+                    }
+                    @media (max-width:320px){
+                        margin: 5px 3px;
+                    }
+                    @media (max-width:375px){
+                        margin:2px 0;
+                    }
                     .image{
                         height:345px;
                         width:300px;
@@ -281,14 +317,37 @@
                             height: 275px;
                             width: 250px;
                         }
+                        @media(max-width:425px){
+                            height: 134px;
+                            width: 120px;
+                        }
+                        @media(max-width:320px){
+                            height: 110px;
+                            width: 93px;
+                        }
                     }
                     .buy-now{
                         margin: 0 auto;
                         width: 50%;
+                        @media (max-width:425px){
+                            margin: 0 5px;
+                            width: auto;
+                            font-size: 10px;
+                        }
+                        @media (max-width:320px){
+                            margin: 0 4px;
+                            width: auto;
+                            font-size: 10px;
+                        }
                         .brand{
                             color: #9a9494;
                             font-weight: 600;
                             text-transform: uppercase;
+                        }
+                        .jeans-title{
+                            overflow: hidden;
+                            max-width: 12ch;
+                            text-overflow: ellipsis;
                         }
                         .price-container{
                             .price{

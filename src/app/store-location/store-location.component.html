@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="store-locator-wrapper">
+<div class="contact-us">
+        <div class="contact_us_title"> Contact Us</div>
+        <div class="contact_us_sbtxt">
+            <p><span class="txt_style">Address:-</span>&nbsp; N.H.23, Jaina More, Bokaro Steel City, Jharkhand 829301</p>
+            <p><span class="txt_style">Call:-</span>&nbsp; 097985 78955</p>
+            <p><span class="txt_style">Email:-</span>&nbsp; abc@gmail.com</p>
+        </div>
+</div>
+<div class="google-map-container">
+    <agm-map [latitude]="lat" [longitude]="lng">
+        <div class="googleMapContainer">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </div>
+    </agm-map>
+</div>
+</div>
+<app-footer></app-footer>
