@@ -1,16 +1,15 @@
 <div class="header-container">
         <div class="menu">
-          <!-- <div class="back" [routerLink]= "['/','home']">Back</div>                 -->
-          <!-- <div class="menu-content track-order">Track Order</div> -->
-          <!-- <div class="menu-content location">Location</div> -->
-          <div class="menu-content login">Login</div>          
+          <div class="menu-content login">Login</div>     
+          <div class="menu-content registration">Register</div>          
+          <div class="menu-content">Help ?</div>                    
         </div>
         <div class="sub-menu mob-view-header" id="myHeader">
             <div class="logo menu-content ">
               <img src="./assets/images/logo1.jpeg" height= "85px" width= "160px">
             </div>
             <div class="menu-top-margin">
-                <div class="home" [routerLink]= "['/','home']"><span>Home</span></div>
+                <div class="home"  [routerLink]= "['/','displayProduct']"><span>Home</span></div>
                 <div class="products">
                     <span>Products</span>
                     <div class="products-wrapper">
@@ -20,21 +19,16 @@
                         </ul>
                     </div>   
                 </div>
-                <div class="customers" [routerLink]= "['/','storeLocation']">
+                <!-- <div class="customers" [routerLink]= "['/','storeLocation']">
                     <span>Store Locator</span>
-                </div> 
-                <div class="our-story">
-                    <span>Our Story</span>
-                    <div class="our-story-desc">
-                        <div class="title">Our Success Story</div>
-                        <div class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                        </div>
-                    </div>
-                </div>  
+                </div>  -->
+                <div class="our-story"><span>Sell</span></div>  
+                <div class="our-story"><span>Settings</span></div>  
+                <div class="our-story"><span>Track Order</span></div>                  
             </div> 
             <div class="mob-menu">
                 <div class="mob-view-content-wrapper" id="itemsWrapper">
-                        <div class="items"  [routerLink]= "['/','home']">Home</div>
+                        <div class="items"  [routerLink]= "['/','displayProduct']">Home</div>
                         <div class="items">Products</div>
                         <div class="items" [routerLink]= "['/','storeLocation']">Store Locator</div> 
                         <div class="items">Our Story</div>                         

@@ -12,7 +12,6 @@ declare var $:any;
 export class HeaderComponent implements OnInit {
  
 /** products */
-products=['JEANS','TEES','SHIRTS','JACKETS','SWEATERS','SWEATSHIRTS'];
 showMenuFlag:boolean=false;
 
 productsArray:Array<any>;
@@ -53,6 +52,5 @@ productsArray:Array<any>;
   showMenu(){
     document.getElementById('burgurMenu').classList.toggle("change");
     document.getElementById("itemsWrapper").classList.toggle("displayBlock");
-   // $(".mob-view-content-wrapper").css({"display":"block"});
   }
 }

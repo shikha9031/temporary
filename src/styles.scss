@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~assets/stylesheet/variables.scss";
+
 body{
     margin: 0;
 }
@@ -10,17 +12,13 @@ body { margin: 0; font-family: 'calibri'; }
 
 .product-form-wrapper
 {
-    // input.ng-invalid.ng-dirty{
-    //     border:1px solid red;
-    //   }
-    background-color: lightgray;
-    height: 215px;
+    background-color: $elm;
     margin: 10px 210px;
     .header
     {
         // height: 50px;
         padding: 10px;
-        background-color: grey;
+        background-color: $french_rose;
         position: relative;
         span{
             font-size: 15px;
@@ -29,7 +27,7 @@ body { margin: 0; font-family: 'calibri'; }
             // background-color: #100202;
             font-weight: 600;
             display: inline-block;
-            padding: 5px;
+            padding: 5px 12px;
             border-radius: 10px;
             cursor: pointer;
         }
@@ -41,6 +39,8 @@ body { margin: 0; font-family: 'calibri'; }
         {
             font-size: 20px;
             margin-bottom: 10px;
+            color: white;
+            font-weight: 500;
             .praduct-label{
                 float: left;
                 width: 14%;
@@ -51,7 +51,7 @@ body { margin: 0; font-family: 'calibri'; }
                 padding: 10px;
             }
             select{
-                width: 74%;
+                width: 73%;
                 padding: 10px;
             }
         }

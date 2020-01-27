@@ -38,6 +38,8 @@ constructor( private appServiceObject:ProductService,
 {
 /** fetch data */
 
+
+
   let promise= this.productsService.GetProductsList();
     promise.subscribe(items=>{
         this.productsArray=[];

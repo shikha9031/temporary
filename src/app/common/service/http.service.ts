@@ -17,7 +17,6 @@ export class HttpService{
        return this.serviceUrl;
    }
    postServiceRequest(url, params:any, headers:any){
- 
           return this.http.post(url, params, headers, ).toPromise().then(res=>{
              return res;
           }).catch(this.handleError);
@@ -26,7 +25,6 @@ export class HttpService{
    uploadImage(url, params:any, headers:any){
      var form = new FormData();
      //form.append('file':params.)
-     console.log(params.file);
    }
    
    private handleError(error:any):Promise<any>{

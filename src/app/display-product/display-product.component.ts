@@ -11,57 +11,14 @@ import { Router  } from '@angular/router';
   styleUrls: ['./display-product.component.scss']
 })
 export class DisplayProductComponent implements OnInit {
- /**
-  * left section
-   filter items
-  */
-  filterArray=
-  [
-        {
-        'title':'Price',
-        'type':'price',
-        'content':['100-500','500-1000','1000-5000','5000-10000'],
-        'showList':true
-      },
-      {
-        'title':'Size',
-        'type':'size',
-        'content':['26','28','30','32','34','36'],
-        'showList':false
-      },
-      {
-        'title':'Color',
-        'type':'color',
-        'content':['Black','Blue','Brown','Green','Indigo','Beige'],
-        'showList':false
-      },
-      {
-        'title':'Gender',
-        'type':'gender',
-        'content':['Male','Female'],
-        'showList':false
-      },
-      {
-        'title':'Discount',
-        'type':'discount',
-        'content':['Less than 10%','10% or More','20% or More','30% or More','40% or More', '50% or More'],
-        'showList':false
-      },
-      {
-        'title':'Customer Ratings',
-        'type':'customerRatings',
-        'content':['4','3','2','1'],
-        'showList':false
-      },
-];
+
 /**
  * right section 
  * collection of items
  */
 collectionOfJeans:Array<Items>;
  
-  selectSortingType="Sort By";
-  toggleBox:boolean=false;
+ 
   sortByArray=["Best Matches","Price Low to High","Price High to Low","Product Name A-Z","Product Name Z-A","Most Popular","Top Sellers"];
   pagerObj:any;
   showArray:Array<any>=[];
@@ -69,115 +26,115 @@ collectionOfJeans:Array<Items>;
     this.collectionOfJeans=
     [
       {
-        'link':'./assets/images/boys-jeans/boys-jeans1.jpg',
+        'link':'./assets/images/bag1.png',
         'filter':'male',
-        'brand':'Flying Machine',
-        'title':"Skinny Men blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       },
       {
-        'link':'./assets/images/boys-jeans/boys-jeans2.jpg',
+        'link':'./assets/images/bag2.png',
         'filter':'male',
-        'brand':'Flying Machine',
-        'title':"Skinny Men blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       },
       {
-        'link':'./assets/images/boys-jeans/boys-jeans3.jpg',
+        'link':'./assets/images/bag3.png',
         'filter':'male',
-        'brand':'Flying Machine',
-        'title':"Skinny Men blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       },
       {
-        'link':'./assets/images/boys-jeans/boys-jeans4.jpg',
+        'link':'./assets/images/bag4.png',
         'filter':'male',
-        'brand':'Flying Machine',
-        'title':"Skinny Men blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       },
       {
-        'link':'./assets/images/boys-jeans/boys-jeans5.jpg',
+        'link':'./assets/images/bag5.png',
         'filter':'male',
-        'brand':'Flying Machine',
-        'title':"Skinny Men blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       },
       {
-        'link':'./assets/images/boys-jeans/boys-jeans6.jpg',
+        'link':'./assets/images/bag6.jpg',
         'filter':'male',
-        'brand':'Flying Machine',
-        'title':"Skinny Men blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       },
       { 
-        'link':'./assets/images/boys-jeans/boys-jeans7.jpg',
+        'link':'./assets/images/bag7.png',
          'filter':'male',
-         'brand':'Flying Machine',
-         'title':"Skinny Men blue jeans",
-         'price':'899',
+         'brand':'Bee fashionable',
+         'title':"Party, Formal, Casual Multicolor  Clutch",
+         'price':'598',
          'originalPrice':'1200',
          'offer':'30%'
       },
       {
-        'link':'./assets/images/ladies-jeans/Ladies-jeans1.jpg',
+        'link':'./assets/images/bag8.png',
         'filter':'female',
-        'brand':'Flying Machine',
-        'title':"Skinny Men blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       },
       {
-        'link':'./assets/images/ladies-jeans/Ladies-jeans2.jpg',
+        'link':'./assets/images/bag9.png',
         'filter':'female',
-        'brand':'Flying Machine',
-        'title':"Skinny Women's blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       },
       {
-        'link':'./assets/images/ladies-jeans/Ladies-jeans3.jpg',
+        'link':'./assets/images/bag10.png',
         'filter':'female',
-        'brand':'Flying Machine',
-        'title':"Skinny Women's blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       },
       {
-        'link':'./assets/images/ladies-jeans/Ladies-jeans4.jpeg',
+        'link':'./assets/images/bag11.png',
         'filter':'female',
-        'brand':'Flying Machine',
-        'title':"Skinny Women's blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       },
       {
-        'link':'./assets/images/ladies-jeans/Ladies-jeans5.jpg',
+        'link':'./assets/images/bag12.png',
         'filter':'female',
-        'brand':'Flying Machine',
-        'title':"Skinny Women's blue jeans",
-        'price':'899',
+        'brand':'Bee fashionable',
+        'title':"Party, Formal, Casual Multicolor  Clutch",
+        'price':'598',
         'originalPrice':'1200',
         'offer':'30%'
       } 
     ];
-    this.pagerObj={'pageArray':[1,2,3,4], 'totalPages':0 , 'itemsPerPage':6, 'productArray':this.collectionOfJeans};    
+    this.pagerObj={'pageArray':[1,2,3,4], 'totalPages':0 , 'itemsPerPage':8, 'productArray':this.collectionOfJeans};    
     this.pagerObj.totalPages= Math.ceil(this.collectionOfJeans.length/this.pagerObj.itemsPerPage);
     if(this.pagerObj.totalPages<=4)
       {
@@ -191,16 +148,7 @@ collectionOfJeans:Array<Items>;
 
   ngOnInit()
    { }
-  toggleFun(list){
-    list.showList=!list.showList;
-  }
-  toggleSelectBox(){
-    this.toggleBox=!this.toggleBox;
-  }
-  selectedItem(item){
-    this.selectSortingType=item;
-    this.toggleBox=false;
-  }
+ 
   paginateArray(event:any){
       setTimeout(()=>{
         this.showArray=event;

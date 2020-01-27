@@ -2,8 +2,8 @@
 <div class="product-form-wrapper">
   <!-- header  -->
   <div class="header">
-      <span (click)="showForm=true; resetItems()" [ngStyle]="{ 'background-color': showForm ? '#100202': ''}">Add Category</span>      
-    <span (click)="showForm=false;resetItems()" [ngStyle]="{ 'background-color': !showForm ? '#100202': ''}">Add Items</span>
+      <span (click)="showForm=true; resetItems()" [ngStyle]="{ 'background-color': showForm ? '#9E1447': ''}">Add Category</span>      
+    <span (click)="showForm=false;resetItems()" [ngStyle]="{ 'background-color': !showForm ? '#9E1447': ''}">Add Items</span>
   </div>
   <!-- Items Form -->
   <form class="form-horizontal" #f="ngForm" (ngSubmit)="submitItemForm()" *ngIf="!showForm">

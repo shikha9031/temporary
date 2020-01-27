@@ -22,11 +22,9 @@ import { AdminModule } from './admin/admin.module';
 
 //custom component
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
-import { RequestComponent } from './request/request.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { DisplayProductComponent } from './display-product/display-product.component';
 
@@ -35,21 +33,25 @@ import { DropZoneDirective } from './common/directive/drop-zone.directive';
 import { StoreLocationComponent } from './store-location/store-location.component';
 import { AgmCoreModule } from '@agm/core';
 import { ShowOneProductComponent } from './show-one-product/show-one-product.component';
+import { FilterComponent } from './filter/filter.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NotificationComponent } from './notification/notification.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    RequestComponent,
     DisplayProductComponent,
     PaginationComponent,
     DropZoneDirective,
     StoreLocationComponent,
-    ShowOneProductComponent
+    ShowOneProductComponent,
+    FilterComponent,
+    PageNotFoundComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,39 @@
+.notification
+{
+    z-index: 1;
+    text-align: center;
+    background-color: #f77754;
+    text-transform: uppercase;
+    padding: 15px 0;
+    margin-top: 83px;
+    color: white;
+    .title
+    {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .sell-desc 
+    {
+        font-size: 34px;
+        font-family: "Interstate-Bold";
+        color: white !important;
+        padding: 10px 0;
+        @media (max-width:1024px){
+            font-size: 22px;          
+          }
+    }
+    .sale-type
+    {
+      font-weight: 600;
+        span
+        {
+            padding-left: 20px;
+            cursor: pointer;
+            font-size: 18px;      
+                &:hover
+                {
+                    text-decoration: underline;
+                }    
+        }
+    }
+}

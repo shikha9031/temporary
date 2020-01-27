@@ -1,3 +1,5 @@
+@import "~assets/stylesheet/variables.scss";
+
 .side-nav-container
 {
     width: 20%;
@@ -8,13 +10,14 @@
             margin: 0;
             padding: 0;
             .current{
-                background-color: lightgray;
+                background-color: $french_rose;
                 padding: 10px;
-                color: black;
+                color: white;
                 cursor: pointer;
                 box-shadow: 1px 1px 1px;   
                 cursor: pointer;
-                font-weight: 500;
+                font-weight: 600;
+                border-bottom: 1px solid;
             }
         }
     }

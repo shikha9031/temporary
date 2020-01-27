@@ -10,7 +10,9 @@
       width: 100%;
     }
     .footer-list-wrapper{ 
-      padding: 16px 30px;
+      padding: 16px 0;
+      width: 50%;
+      margin: 0 auto;
       @media (max-width:425px){
         margin: 0 auto;
        width: auto;
@@ -21,7 +23,6 @@
       color: $white-color;
       display: inline-grid;
       @extend %ul-list-style;
-      margin: 0;
       margin-right: 90px;
       @media (max-width:768px){
         margin-right: 60px;
@@ -31,11 +32,14 @@
         margin-top: 15px;
         display: block;
       }
+      &:last-of-type{
+        margin-right: 0;
+      }
     }
     .footer-list > :first-child{
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 3px;
-      color: #063c40;
+      color: #f77754;
       text-transform: uppercase;
     }
     .footer-list > :not(:first-child){

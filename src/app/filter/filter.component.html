@@ -1,0 +1,43 @@
+<div class="filter">
+  <span class="filter-text">Filter</span>
+  <span class="apply"><button>Apply</button></span>
+  <span class="clear-all"><button>Clear All</button></span>
+</div>
+<div class="selection-list-container" *ngFor="let list of filterArray">
+  <ul>
+    <span class="filter-title" (click)="toggleFun(list)">{{list.title}}</span>
+    <span class="down-arrow" [hidden]="list.showList">
+         <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span>
+    <span class="down-arrow" [hidden]="!list.showList">
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
+     </span>
+    <div [hidden]="!list.showList" class="list-container">
+      <li *ngFor="let obj of list.content; let i=index">
+        <span *ngIf="list.type=='price'"><!-- && i<(list.content.length-1)"-->
+              <div class="container">
+              <input type="radio" class="styled-radio" id="radio1" name="radio1">
+              <label>&nbsp;{{list.content[i]}}</label>
+              </div>
+          </span>
+        <span *ngIf="list.type=='customerRatings'">
+            <div class="container">
+              <input type="checkbox" class="styled-checkbox">                   
+             <label>&nbsp;{{obj}}&nbsp;<span class="fa fa-star"></span>&nbsp; & Above</label>
+            </div>
+        </span>
+    <span *ngIf="list.type=='color'">
+            <div  class="container">
+              <input type="checkbox" class="styled-checkbox">
+              <label> &nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" [ngStyle]="{'color': obj}"></i>&nbsp;{{obj}}</label>
+            </div>
+    </span>
+    <span *ngIf="!(list.type=='price' || list.type=='customerRatings'|| list.type=='color')">
+              <div  class="container">
+                <input type="checkbox"  class="styled-checkbox"><label>&nbsp;&nbsp;{{obj}}</label>
+              </div>
+     </span>
+    </li>
+</div>
+</ul>
+</div>
