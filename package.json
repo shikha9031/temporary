@@ -35,7 +35,7 @@
     "intl": "^1.2.5",
     "jquery-parallax.js": "^1.5.0",
     "ngx-owl-carousel": "^2.0.7",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
     "script-loader": "^0.7.2",
